@@ -1,4 +1,6 @@
-(ns mailcheck.core)
+(ns mailcheck.core
+  (:use [mailcheck.email]
+        [clojure.string :only (split)]))
 
 (defonce *threshold* 3)
 
@@ -10,3 +12,13 @@
 
 (defonce *top-level-domains*
   ["co.uk" "com" "edu" "gov" "info" "mil" "net" "org"])
+
+(defn split-email
+  [email]
+  (when (valid-email? email)
+    (let [email-parts (split email #"@")
+          domain (second email-parts)
+          domain-parts (split domain #"\.")]
+      {:top_level_domain (last domain-parts)
+       :domain domain
+       :email email})))
