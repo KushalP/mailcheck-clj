@@ -33,4 +33,13 @@
   (testing "is nil when an imcomplete email is provided"
     (is (nil? (suggest "contact")))
     (is (nil? (suggest "")))
-    (is (nil? (suggest "test@")))))
+    (is (nil? (suggest "test@"))))
+  (testing "passing cases of the suggestion function"
+    (are [input domain] (= domain (-> input suggest :domain))
+      "test@gmail.com" "gmail.com"
+      "test@gnail.com" "gmail.com"
+      "test@GNAIL.com" "gmail.com"
+      "test@comcast.com" "comcast.net"
+      "test@hotmail.co" "hotmail.com"
+      "test@fabecook.com" "facebook.com"
+      "test@yajoo.com" "yahoo.com")))
