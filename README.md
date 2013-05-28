@@ -11,6 +11,14 @@ When your user types in "user@hotnail.com", Mailcheck will suggest "user@hotmail
 
 ## Usage
 
+Add the following to your list of dependencies:
+
+```clojure
+[mailcheck "0.1.1"]
+```
+
+Then you can use it in a REPL as follows:
+
 ```clojure
 (use 'mailcheck.core)
 (suggest "user@hotnail.com")
