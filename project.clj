@@ -1,4 +1,4 @@
-(defproject mailcheck "0.1.1"
+(defproject mailcheck "0.1.2-SNAPSHOT"
   :description "A port of Kicksend's mailcheck.js library to Clojure"
   :url "https://github.com/KushalP/mailcheck-clj"
   :license {:name "Eclipse Public License"
