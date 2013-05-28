@@ -13,6 +13,6 @@ FIXME
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Kushal Pisavadia
 
 Distributed under the Eclipse Public License, the same as Clojure.
