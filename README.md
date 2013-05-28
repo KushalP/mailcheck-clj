@@ -1,5 +1,7 @@
 # mailcheck
 
+[![Build Status](https://travis-ci.org/KushalP/mailcheck-clj.png?branch=master)](https://travis-ci.org/KushalP/mailcheck-clj)
+
 A Clojure translation of the
 [Kicksend mailcheck](https://github.com/Kicksend/mailcheck) javascript
 library which suggests a right domain when your users misspell it in
