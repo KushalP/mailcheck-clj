@@ -9,7 +9,11 @@ When your user types in "user@hotnail.com", Mailcheck will suggest "user@hotmail
 
 ## Usage
 
-FIXME
+```clojure
+(use 'mailcheck.core)
+(suggest "user@hotnail.com")
+{:address "user", :domain "hotmail.com", :full "user@hotmail.com"}
+```
 
 ## License
 
