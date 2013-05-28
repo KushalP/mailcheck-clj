@@ -37,3 +37,13 @@
     (if (<= (first top-match) min-dist)
       (second top-match)
       nil)))
+
+(defn suggest
+  [email]
+  (let [email-parts (split-email email)]
+    (when (seq email-parts)
+      (let [closest-domain (find-closest-domain (:domain email-parts) *domains*)]
+        (when (seq closest-domain)
+          {:address (:address email-parts),
+           :domain closest-domain,
+           :full (str (:address email-parts) "@" closest-domain)})))))

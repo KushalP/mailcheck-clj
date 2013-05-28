@@ -25,3 +25,12 @@
            "hotmail.co" "hotmail.com"
            "fabecook.com" "facebook.com"
            "yajoo.com" "yahoo.com"))))
+
+(deftest test-suggest
+  (testing "returns a map of the address, domain, and full email address when there's a suggestion"
+    (is (= {:address "user", :domain "hotmail.com", :full "user@hotmail.com"}
+           (suggest "user@hotma.com"))))
+  (testing "is nil when an imcomplete email is provided"
+    (is (nil? (suggest "contact")))
+    (is (nil? (suggest "")))
+    (is (nil? (suggest "test@")))))
