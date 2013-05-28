@@ -1,8 +1,8 @@
-(ns mailcheck.levenstein-test
+(ns mailcheck.levenshtein-test
   (:require [clojure.test :refer :all]
-            [mailcheck.levenstein :refer :all]))
+            [mailcheck.levenshtein :refer :all]))
 
-(deftest test-levenstein-distance
+(deftest test-levenshtein-distance
   (are [expected x y] (= expected (levenshtein-distance x y))
        2 "stri" "string"
        5 "ao" "aol.com"

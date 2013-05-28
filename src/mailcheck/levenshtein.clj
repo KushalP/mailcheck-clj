@@ -1,4 +1,4 @@
-(ns mailcheck.levenstein
+(ns mailcheck.levenshtein
   "Source: https://gist.github.com/vishnuvyas/958488
 A purely functional implementation of the levenshtien distance in clojure")
 
