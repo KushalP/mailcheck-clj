@@ -1,6 +1,8 @@
 (ns mailcheck.core
   (:use [mailcheck.email]
-        [clojure.string :only (split)]))
+        [mailcheck.levenshtein]
+        [clojure.set :only (map-invert)]
+        [clojure.string :only (lower-case split)]))
 
 (defonce *threshold* 3)
 
@@ -22,3 +24,16 @@
       {:top_level_domain (last domain-parts)
        :domain domain
        :email email})))
+
+(defn find-closest-domain
+  [domain domains]
+  (let [min-dist 99
+        distances (map #(levenshtein-distance (lower-case domain) %) domains)
+        matches (zipmap domains distances)
+        top-match (->> matches
+                       map-invert
+                       (into (sorted-map))
+                       first)]
+    (if (<= (first top-match) min-dist)
+      (second top-match)
+      nil)))
