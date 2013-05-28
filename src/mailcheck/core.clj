@@ -23,7 +23,7 @@
           domain-parts (split domain #"\.")]
       {:top_level_domain (last domain-parts)
        :domain domain
-       :email email})))
+       :address (first email-parts)})))
 
 (defn find-closest-domain
   [domain domains]

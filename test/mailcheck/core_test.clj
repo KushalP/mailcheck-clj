@@ -6,7 +6,7 @@
   (testing "returns nil if the email is invalid"
     (is (nil? (split-email "a@b"))))
   (testing "returns a hash of the email's split information"
-    (is (= {:top_level_domain "com", :domain "b.com", :email "a@b.com"}
+    (is (= {:top_level_domain "com", :domain "b.com", :address "a"}
            (split-email "a@b.com")))))
 
 (deftest test-find-closest-domain
