@@ -4,15 +4,15 @@
         [clojure.set :only (map-invert)]
         [clojure.string :only (lower-case split)]))
 
-(defonce *threshold* 3)
+(defonce -threshold- 3)
 
-(defonce *domains*
+(defonce -domains-
   ["aol.com" "att.net" "comcast.net" "facebook.com" "gmail.com"
    "gmx.com" "google.com" "googlemail.com" "hotmail.co.uk"
    "hotmail.com" "live.com" "mac.com" "mail.com" "me.com" "msn.com"
    "sbcglobal.net" "verizon.net" "yahoo.co.uk" "yahoo.com"])
 
-(defonce *top-level-domains*
+(defonce -top-level-domains-
   ["co.uk" "com" "edu" "gov" "info" "mil" "net" "org"])
 
 (defn split-email
@@ -42,7 +42,7 @@
   [email]
   (let [email-parts (split-email email)]
     (when (seq email-parts)
-      (let [closest-domain (find-closest-domain (:domain email-parts) *domains*)]
+      (let [closest-domain (find-closest-domain (:domain email-parts) -domains-)]
         (when (seq closest-domain)
           {:address (:address email-parts),
            :domain closest-domain,
