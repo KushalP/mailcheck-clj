@@ -16,3 +16,7 @@ FIXME
 Copyright © 2013 Kushal Pisavadia
 
 Distributed under the Eclipse Public License, the same as Clojure.
+
+### Credits
+
+[Mailcheck.js](https://github.com/Kicksend/mailcheck): the original idea
