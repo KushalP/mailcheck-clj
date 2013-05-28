@@ -34,9 +34,8 @@
                        map-invert
                        (into (sorted-map))
                        first)]
-    (if (<= (first top-match) min-dist)
-      (second top-match)
-      nil)))
+    (when (<= (first top-match) min-dist)
+      (second top-match))))
 
 (defn suggest
   [email]
